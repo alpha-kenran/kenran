@@ -1,99 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<title>Replit風リンクプレビュー</title>
-<style>
-  body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0; /* 背景色 */
-  }
-  .link-preview-card {
-    width: 400px; /* プレビューカードの幅 */
-    border-radius: 8px;
-    overflow: hidden; /* 角丸に合わせて内容を切り抜く */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 影 */
-    background-color: #36393f; /* Discordの背景色に近い色 */
-    color: #ffffff; /* 文字色 */
-    text-decoration: none; /* リンクの下線を除去 */
-    display: block; /* 全体をリンクにするためブロック要素に */
-  }
-  .preview-image-container {
-    width: 100%;
-    height: 200px; /* 画像の高さ */
-    overflow: hidden;
-    position: relative;
-    background-color: #000; /* 画像がない場合の背景色 */
-  }
-  .preview-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像がコンテナを覆うように調整 */
-  }
-  .overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.2em; /* "Idea to app, fast"の文字サイズ */
-    font-weight: bold;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* 文字の影 */
-    white-space: nowrap; /* テキストの改行を防ぐ */
-  }
-  .replit-logo {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 30px; /* ロゴの幅 */
-    height: auto;
-  }
-  .preview-content {
-    padding: 15px;
-    background-color: #2e7d32; /* 緑色の部分 */
-  }
-  .preview-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  .preview-description {
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8); /* 少し薄い文字色 */
-    line-height: 1.4;
-  }
-  .site-url {
-    font-size: 0.8em;
-    color: #b0b0b0; /* 上部のURLの色 */
-    padding: 10px 15px;
-    background-color: #36393f; /* Discordの背景色に近い色 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絢爛へようこそ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; 
+
+            
+            background-image: url('https://cdn.discordapp.com/attachments/1397087754105655479/1397127396439621733/IMG_5886.jpg?ex=688097c8&is=687f4648&hm=9cc89c6b9d97bac3cc1b038d067b1576a051493e1b62b7477831b5297eec4740&'); 
+            background-size: cover; 
+            background-position: center center; 
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+     
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1; 
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            position: relative; 
+            z-index: 1; 
+        }
+        header {
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .members-section {
+            padding: 50px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        .member-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; 
+            margin-bottom: 50px;
+            gap: 20px; 
+        }
+        .member-icon {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden; 
+            border: 3px solid #555;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            flex-shrink: 0; 
+        }
+        .member-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .member-intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            padding: 0 20px;
+        }
+        .member-intro {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+        .member-intro h3 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .member-intro p {
+            font-size: 0.95em;
+            color: #ccc;
+        }
+        .join-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .join-button {
+            display: inline-block;
+            background-color: #556b2f;
+            color: #ffffff;
+            padding: 18px 40px;
+            font-size: 1.5em;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        .join-button:hover {
+            background-color: #6b8e23;
+            transform: translateY(-3px);
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #888;
+            font-size: 0.85em;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>絢爛へようこそ</h1>
+            <p>2絢爛は2025年の6月後半に出来たOC荒らしグループです。</p>
+        </div>
+    </header>
 
-<div style="background-color: #36393f; padding: 20px; border-radius: 8px;">
-  <p class="site-url" style="background-color: transparent; border-bottom: none; text-align: right; color: #57f287; font-size: 1em; padding: 0 0 10px 0;">
-    Replit.com
-  </p>
+    <div class="members-section">
+        <div class="container">
+            <h2 class="section-title">メンバー紹介</h2>
+            <div class="member-icons">
+                <div class="member-icon"><img src="https://cdn.discordapp.com/attachments/1397087754105655479/1397135507602935859/IMG_5977.png?ex=68809f56&is=687f4dd6&hm=c454c987cb487423517d9c4b5eba8170eb0e6091ac49bb1178b499619ce3a0f6&" alt="Delta"></div>
+                <div class="member-icon"><img src="https://cdn.discordapp.com/attachments/1397087754105655479/1397135508207046667/IMG_5870.jpg?ex=68809f56&is=687f4dd6&hm=fa57edfcf7488ed51ad96f7b54c1e776771b5b22b97517c9c7b5cd9bfc9cc79c&" alt="pound"></div>
+                <div class="member-icon"><img src="https://cdn.discordapp.com/attachments/1397087754105655479/1397135507946995834/IMG_5976.png?ex=68809f56&is=687f4dd6&hm=d0a473e37c6672ca85654b2bbf855a7ed54d3495c8220dc9bb17ce51b32bb7d0&" alt="micro"></div>
+                <div class="member-icon"><img src="https://cdn.discordapp.com/attachments/1397087754105655479/1397135508454379532/IMG_5262.jpg?ex=68809f56&is=687f4dd6&hm=213aec95c893eaa54fab27c8121e763b8ff28c465f8db2f2a0c5f3d625105146&" alt="alpha"></div>
+            </div>
 
-  <a href="https://replit.com" target="_blank" class="link-preview-card">
-    <div class="preview-image-container">
-      <img src="https://cdn.glitch.global/039b83b3-85b2-4d57-827d-0d6c0f862908/replit-earth-bg.webp?v=1678901234567" alt="Replit background" class="preview-image">
-      <img src="https://assets.replit.com/images/replit-logo-small.svg" alt="Replit logo" class="replit-logo">
-      <div class="overlay-text">Idea to app, fast</div>
+            <div class="member-intro-grid">
+                <div class="member-intro">
+                    <h3>Delta -Δ</h3>
+                    <p>技術者 大人しい</p>
+                </div>
+                <div class="member-intro">
+                    <h3>Pound -￡</h3>
+                    <p>語尾カタカナの本家 乗っ取りが上手い</p>
+                </div>
+                <div class="member-intro">
+                    <h3>Micro -μ</h3>
+                    <p>無口 乗っ取りが上手い</p>
+                </div>
+                <div class="member-intro">
+                    <h3>Alpha -α</h3>
+                    <p>技術者 好戦的</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="preview-content">
-      <div class="preview-title">Replit – Build apps and sites with AI</div>
-      <div class="preview-description">Replit is an AI-powered platform for building professional web app...</div>
-    </div>
-  </a>
-</div>
 
+    <div class="join-section">
+        <div class="container">
+            <a href="https://line.me/ti/g2/pWv463tMdBrvBba0LW7oDb2e4cisHTla5Lg0pQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="join-button">絢爛へ参加</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 絢爛OCgroup. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
