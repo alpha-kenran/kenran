@@ -121,17 +121,18 @@
         }
         .join-button {
             display: inline-block;
-            background-color: #4CAF50;
-            color: #ffffff;
+            background-color: transparent; /* 背景を透明に */
+            color: #ffffff; /* テキストの色は白のまま */
             padding: 18px 40px;
             font-size: 1.5em;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: none; /* シャドウを削除 */
+            border: 2px solid #ffffff; /* 白い枠線を追加して視認性を確保 */
         }
         .join-button:hover {
-            background-color: #45a049;
+            background-color: rgba(255, 255, 255, 0.1); /* ホバー時に薄い白の背景を表示 */
             transform: translateY(-3px);
         }
         footer {
@@ -186,7 +187,7 @@
 
     <div class="join-section">
         <div class="container">
-            <a href="https://line.me/ti/g2/pWv463tMdBrvBba0LW7oDb2e4cisHTla5Lg0pQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="join-button">&#x1F4AC; 絢爛に参加</a>
+            <a href="https://line.me/ti/g2/pWv463tMdBrvBba0LW7oDb2e4cisHTla5Lg0pQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="join-button">絢爛に参加</a>
         </div>
     </div>
 
